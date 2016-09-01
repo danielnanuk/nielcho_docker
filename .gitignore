@@ -1,1 +1,4 @@
+# installation file
 *.tar.gz
+# redis database dump file
+*.rdb
