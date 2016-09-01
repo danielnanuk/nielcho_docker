@@ -10,8 +10,10 @@ build() {
   docker build . -t 'nielcho/tomcat8:v1'
 }
 run() {
-  CID=`docker run -itdP 'nielcho/tomcat8:v1'`
-  echo "http://`docker port $CID 8080`"
+  LCID=`docker run -itdP 'nielcho/tomcat8:v1'`
+  CID=${LCID:0:12}
+  echo "tomcat        : http://`docker port $CID 8080`"
+  echo "supervisorctl : docker exec -it $CID supervisorctl"
 }
 
 case $1 in
