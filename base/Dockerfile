@@ -13,6 +13,8 @@ RUN sudo mkdir -p /var/run/sshd
 RUN sudo apt-get install -y supervisor
 RUN sudo mkdir -p /var/log/supervisor
 
+RUN sudo apt-get install -y make cmake gcc g++ bison libncurses5-dev build-essential
+
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 CMD ["/usr/bin/supervisord"]
