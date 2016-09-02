@@ -1,4 +1,4 @@
-FROM nielcho/jdk7
+FROM nielcho/jdk7:v1
 MAINTAINER nielcho "danielnanuk@gmail.com"
 ENV REFRESHED_AT 2016-08-31
 
