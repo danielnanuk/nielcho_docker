@@ -2,3 +2,8 @@
 *.tar.gz
 # redis database dump file
 *.rdb
+rabbitmq/rabbitmq/logs/*
+rabbitmq/rabbitmq/mnesia/*
+rabbitmq/rabbitmq/mnesia.pid
+.idea
+
