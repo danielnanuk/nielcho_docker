@@ -10,7 +10,8 @@ build() {
   docker build . -t 'nielcho/jdk7:v1'
 }
 run() {
-  CID=`docker run -itd 'nielcho/jdk7:v1'`
+    LCID=`docker run -itd 'nielcho/jdk7:v1'`
+	CID=${LCID:0:12}
 	echo "Container ID: $CID"
 	docker exec -it $CID java -version
 }
