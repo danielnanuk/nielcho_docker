@@ -6,4 +6,5 @@ rabbitmq/rabbitmq/logs/*
 rabbitmq/rabbitmq/mnesia/*
 rabbitmq/rabbitmq/mnesia.pid
 .idea
+.DS_Store
 
