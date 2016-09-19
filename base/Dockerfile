@@ -6,7 +6,7 @@ RUN sudo rm -rf /var/lib/apt/lists/*
 
 # install vim,wget,curl,openssh-server
 RUN sudo apt-get update
-RUN sudo apt-get install -y vim wget curl
+RUN sudo apt-get install -y vim wget curl openssh-server
 RUN sudo mkdir -p /var/run/sshd
 
 # install supervisor 
