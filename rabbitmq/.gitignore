@@ -1,0 +1,3 @@
+rabbitmq/logs/*
+rabbitmq/mnesia/*
+rabbitmq/mnesia.pid
