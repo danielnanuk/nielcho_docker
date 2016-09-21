@@ -9,10 +9,10 @@ RUN cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 RUN chmod 600 ~/.ssh/authorized_keys
 RUN echo 'NoHostAuthenticationForLocalhost yes' >> ~/.ssh/config && echo 'Host 0.0.0.0' >> ~/.ssh/config && echo '  StrictHostKeyChecking no' >> ~/.ssh/config
 ADD etc /opt/hadoop-2.7.3/etc
-ADD bootstrap.sh /opt/hadoop-2.7.3/
+ADD bootstrap.sh /opt/hadoop-2.7.3/bin
+ADD teardown.sh /opt/hadoop-2.7.3/bin
 ENV HADOOP_HOME /opt/hadoop-2.7.3
 ENV PATH $PATH:/opt/hadoop-2.7.3/bin
-RUN hdfs namenode -format
 
 # HDFS ports
 EXPOSE 50010 50020 50070 50075 50090
@@ -22,6 +22,8 @@ EXPOSE 19888
 EXPOSE 8030 8031 8032 8033 8040 8042 8088
 #Other ports
 EXPOSE 49707 2122   
+
+VOLUME ["/dfs"]
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 

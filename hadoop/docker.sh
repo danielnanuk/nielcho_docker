@@ -10,10 +10,12 @@ build() {
   docker build . -t 'nielcho/hadoop:v1'
 }
 run() {
-  LCID=`docker run -itPd 'nielcho/hadoop:v1'`
+  LCID=`docker run -itPd -v $PWD/dfs:/dfs 'nielcho/hadoop:v1'`
   CID=${LCID:0:12}
   echo "Container ID: $CID"
-  echo "    supervisorctl:docker exec -it $CID supervisorctl"
+  echo "Format namenode : docker exec -it $CID hdfs namenode -format"
+  echo "Start hadoop    : docker exec -it $CID bootstrap.sh"
+  echo "Stop  hadoop    : docker exec -it $CID teardown.sh"
 }
 
 case $1 in
